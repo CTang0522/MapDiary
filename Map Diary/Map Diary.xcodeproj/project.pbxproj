@@ -11,6 +11,9 @@
 		83D88BD42A6DD31000494B78 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BD32A6DD31000494B78 /* ContentView.swift */; };
 		83D88BD62A6DD31100494B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D88BD52A6DD31100494B78 /* Assets.xcassets */; };
 		83D88BD92A6DD31100494B78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D88BD82A6DD31100494B78 /* Preview Assets.xcassets */; };
+		83D88BE02A6DD37500494B78 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BDF2A6DD37500494B78 /* model.swift */; };
+		83D88BE22A6DD42500494B78 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BE12A6DD42500494B78 /* MapView.swift */; };
+		83D88BE52A6DDD3400494B78 /* NewLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BE42A6DDD3400494B78 /* NewLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		83D88BD32A6DD31000494B78 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		83D88BD52A6DD31100494B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83D88BD82A6DD31100494B78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		83D88BDF2A6DD37500494B78 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		83D88BE12A6DD42500494B78 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		83D88BE32A6DD77700494B78 /* Map-Diary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Map-Diary-Info.plist"; sourceTree = SOURCE_ROOT; };
+		83D88BE42A6DDD3400494B78 /* NewLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +58,12 @@
 		83D88BD02A6DD31000494B78 /* Map Diary */ = {
 			isa = PBXGroup;
 			children = (
+				83D88BE32A6DD77700494B78 /* Map-Diary-Info.plist */,
 				83D88BD12A6DD31000494B78 /* Map_DiaryApp.swift */,
 				83D88BD32A6DD31000494B78 /* ContentView.swift */,
+				83D88BE42A6DDD3400494B78 /* NewLocationView.swift */,
+				83D88BDF2A6DD37500494B78 /* model.swift */,
+				83D88BE12A6DD42500494B78 /* MapView.swift */,
 				83D88BD52A6DD31100494B78 /* Assets.xcassets */,
 				83D88BD72A6DD31100494B78 /* Preview Content */,
 			);
@@ -138,6 +149,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D88BD42A6DD31000494B78 /* ContentView.swift in Sources */,
+				83D88BE52A6DDD3400494B78 /* NewLocationView.swift in Sources */,
+				83D88BE22A6DD42500494B78 /* MapView.swift in Sources */,
+				83D88BE02A6DD37500494B78 /* model.swift in Sources */,
 				83D88BD22A6DD31000494B78 /* Map_DiaryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +283,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Map Diary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Map-Diary-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please Allow Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +313,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Map Diary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Map-Diary-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please Allow Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

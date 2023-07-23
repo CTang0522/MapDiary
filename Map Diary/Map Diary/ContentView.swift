@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var locationManager:LocationManager = LocationManager()
+    @State var location:String = ""
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        NavigationView(){
+            VStack {
+                Text("My World My Story")
+                MapView().environmentObject(locationManager)
+                
+                NavigationLink(destination: NewLocationView().environmentObject(locationManager)){
+                    Text("To The Form")
+                }
+            }
         }
-        .padding()
+        
+        
+        
+        
+        
+        
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
