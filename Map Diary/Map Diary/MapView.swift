@@ -16,8 +16,8 @@ struct MapView: View {
             longitude:-122.416772
         ),
         span: MKCoordinateSpan(
-            latitudeDelta: 0.0027027027,
-            longitudeDelta: 0.0027027027
+            latitudeDelta: 30,//0.0027027027,
+            longitudeDelta: 30//0.0027027027
         )
     )
     @State var track : MapUserTrackingMode = .follow
@@ -26,17 +26,11 @@ struct MapView: View {
     
     
     
+    /*, annotationItems: locationManager.allMapPins){ MapPin(coordinate: $0.coordinate)}*/
     
     var body: some View {
         VStack{
-            Map(coordinateRegion: $region, interactionModes:.all, showsUserLocation: true, userTrackingMode: $track /*, annotationItems: locationManager.allMapPins){
-                MapPin(coordinate: $0.coordinate)
-            }*/)//.frame(height: 600)
-            
-            
-                .onReceive(locationManager.$region){ region in
-                    self.region = region                    
-                }
+            Map(coordinateRegion: $region, interactionModes:.all, showsUserLocation: true, userTrackingMode: $track)
         }
     }
 }

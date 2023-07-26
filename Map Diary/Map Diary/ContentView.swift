@@ -13,19 +13,25 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+        let backColor = Color(red: 251/255, green: 232/255, blue: 176/255, opacity: 1)
         NavigationView(){
             VStack {
-                Text("My World My Story")
+                Text("My World My Story").font(
+                    .largeTitle
+                    .weight(.bold)
+                )
+                
+                
                 MapView().environmentObject(locationManager)
+                
                 
                 NavigationLink(destination: NewLocationView().environmentObject(locationManager)){
                     Text("To The Form")
                 }
-            }
+            }.background(backColor)
         }
         
-        
+        //251 232 176
         
         
         

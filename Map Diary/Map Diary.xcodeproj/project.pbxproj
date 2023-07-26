@@ -14,6 +14,7 @@
 		83D88BE02A6DD37500494B78 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BDF2A6DD37500494B78 /* model.swift */; };
 		83D88BE22A6DD42500494B78 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BE12A6DD42500494B78 /* MapView.swift */; };
 		83D88BE52A6DDD3400494B78 /* NewLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BE42A6DDD3400494B78 /* NewLocationView.swift */; };
+		83D88BE72A71AF6600494B78 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D88BE62A71AF6600494B78 /* MemoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		83D88BE12A6DD42500494B78 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		83D88BE32A6DD77700494B78 /* Map-Diary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Map-Diary-Info.plist"; sourceTree = SOURCE_ROOT; };
 		83D88BE42A6DDD3400494B78 /* NewLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationView.swift; sourceTree = "<group>"; };
+		83D88BE62A71AF6600494B78 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				83D88BD32A6DD31000494B78 /* ContentView.swift */,
 				83D88BE42A6DDD3400494B78 /* NewLocationView.swift */,
 				83D88BDF2A6DD37500494B78 /* model.swift */,
+				83D88BE62A71AF6600494B78 /* MemoryView.swift */,
 				83D88BE12A6DD42500494B78 /* MapView.swift */,
 				83D88BD52A6DD31100494B78 /* Assets.xcassets */,
 				83D88BD72A6DD31100494B78 /* Preview Content */,
@@ -151,6 +154,7 @@
 				83D88BD42A6DD31000494B78 /* ContentView.swift in Sources */,
 				83D88BE52A6DDD3400494B78 /* NewLocationView.swift in Sources */,
 				83D88BE22A6DD42500494B78 /* MapView.swift in Sources */,
+				83D88BE72A71AF6600494B78 /* MemoryView.swift in Sources */,
 				83D88BE02A6DD37500494B78 /* model.swift in Sources */,
 				83D88BD22A6DD31000494B78 /* Map_DiaryApp.swift in Sources */,
 			);
