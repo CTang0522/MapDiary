@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct NewLocationView: View {
+    
     @EnvironmentObject var locationManager : LocationManager
+    @State var show = false
     @State var location:String = ""
     @State var notes:String = ""
     
@@ -45,13 +47,26 @@ struct NewLocationView: View {
     @State var srctype : UIImagePickerController.SourceType = .photoLibrary
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     var body: some View {
-        
-        NavigationView(){
+
+        ZStack{
+            
             Form {
                 VStack{
                     TextField(text:$location, prompt: Text("Where Did You Go?")){
-                        Text("Location")
+                        Text("Location").foregroundStyle(.purple)
                     }
                     
                     Divider()
@@ -159,43 +174,49 @@ struct NewLocationView: View {
                             }
                         }
                     }
+                    //VSTACK ENDING
                     
                     Divider()
                     
                     TextField(text:$notes, prompt: Text("Any Additional Notes?")){
-                        Text("Notes")
+                        Text("Notes").foregroundStyle(.purple)
                     }
                     
                 }
                 
                 Button{
                     locationManager.newMemory(location:location, imageOne:imageOneSelected, imageTwo:imageTwoSelected, imageThree:imageThreeSelected, imageFour:imageFourSelected, imageFive:imageFiveSelected, imageSix:imageSixSelected, notes:notes)
+                    
                 } label: {
                     Text("Enter Location")
-                }
-                
-                
-                NavigationLink(
-                    destination:MemoryView(mem: (memory(location:location, imageOne:imageOneSelected, imageTwo:imageTwoSelected, imageThree:imageThreeSelected, imageFour:imageFourSelected, imageFive:imageFiveSelected, imageSix:imageSixSelected, notes:notes)))
-                ){Text("Show Memory")}
-                
-                
-                
-            }.sheet(isPresented: $openOneCameraRoll) {
-                ImagePicker(selectedImage: $imageOneSelected, sourceType: srctype)
-            }.sheet(isPresented: $openTwoCameraRoll) {
-                ImagePicker(selectedImage: $imageTwoSelected, sourceType: srctype)
-            }.sheet(isPresented: $openThreeCameraRoll) {
-                ImagePicker(selectedImage: $imageThreeSelected, sourceType: srctype)
-            }.sheet(isPresented: $openFourCameraRoll) {
-                ImagePicker(selectedImage: $imageFourSelected, sourceType: srctype)
-            }.sheet(isPresented: $openFiveCameraRoll) {
-                ImagePicker(selectedImage: $imageFiveSelected, sourceType: srctype)
-            }.sheet(isPresented: $openSixCameraRoll) {
-                ImagePicker(selectedImage: $imageSixSelected, sourceType: srctype)
+                }.foregroundColor(.purple)
             }
+            
+            if(show){
+                Text("Memory Saved").font(
+                    .callout
+                        .weight(.bold)
+                ).foregroundColor(.purple).offset(y:100)
+            }
+            
+        }
+
+        .sheet(isPresented: $openOneCameraRoll) {
+            ImagePicker(selectedImage: $imageOneSelected, sourceType: srctype)
+        }.sheet(isPresented: $openTwoCameraRoll) {
+            ImagePicker(selectedImage: $imageTwoSelected, sourceType: srctype)
+        }.sheet(isPresented: $openThreeCameraRoll) {
+            ImagePicker(selectedImage: $imageThreeSelected, sourceType: srctype)
+        }.sheet(isPresented: $openFourCameraRoll) {
+            ImagePicker(selectedImage: $imageFourSelected, sourceType: srctype)
+        }.sheet(isPresented: $openFiveCameraRoll) {
+            ImagePicker(selectedImage: $imageFiveSelected, sourceType: srctype)
+        }.sheet(isPresented: $openSixCameraRoll) {
+            ImagePicker(selectedImage: $imageSixSelected, sourceType: srctype)
         }
     }
+    
+    
 }
 
 struct NewLocationView_Previews: PreviewProvider {

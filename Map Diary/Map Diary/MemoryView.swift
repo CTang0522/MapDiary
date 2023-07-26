@@ -17,7 +17,10 @@ struct MemoryView: View {
             let maxLimit = mem.realImages.count
             
             
-            Text("My Trip To \(mem.location)")
+            Text("My Trip To \(mem.location)").font(
+                .title
+                .weight(.bold)
+            )
             if maxLimit > 0{
 
                 Image(uiImage: mem.realImages[imageViewed]).resizable().frame(width: 375,height: 375)
@@ -40,8 +43,6 @@ struct MemoryView: View {
                             }
                         }))
             }
-            Text("Current Index: \(imageViewed)")
-            Text("Max Limit: \(maxLimit)")
             Text("\(mem.notes)")
             
             

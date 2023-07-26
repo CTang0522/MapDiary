@@ -14,6 +14,7 @@ import SwiftUI
 class LocationManager: NSObject, ObservableObject {
     
     private let locationManager = CLLocationManager()
+    @Published var annotations:[Mark] = []
     @Published var location : CLLocation?
     @Published var region: MKCoordinateRegion = MKCoordinateRegion(
         center:  CLLocationCoordinate2D(
@@ -37,10 +38,39 @@ class LocationManager: NSObject, ObservableObject {
         self.locationManager.startUpdatingLocation()
     }
     
-    func newMemory(location:String, imageOne:UIImage, imageTwo:UIImage, imageThree:UIImage, imageFour:UIImage, imageFive:UIImage, imageSix:UIImage, notes:String)
+    func newMemory(location:String, imageOne:UIImage, imageTwo:UIImage, imageThree:UIImage, imageFour:UIImage, imageFive:UIImage, imageSix:UIImage, notes:String) -> ()
     {
-        let mem = memory(location: location, imageOne: imageOne, imageTwo: imageTwo, imageThree: imageThree, imageFour: imageFour, imageFive: imageFive, imageSix: imageSix, notes: notes)
-        print(mem)
+        getCoords(streetName: location, completionHandler: {
+            (coords, error) in
+            if error == nil {
+                print("Latitude: \(coords.latitude)")
+                print("Longitude: \(coords.longitude)")
+                let mem = memory(location: location, imageOne: imageOne, imageTwo: imageTwo, imageThree: imageThree, imageFour: imageFour, imageFive: imageFive, imageSix: imageSix, notes: notes)
+                let mark = Mark(mem: mem, coord: coords)
+                self.annotations.append(mark)
+                
+            } else {
+                print("Location Could Not Be Inferred")
+            }
+            
+        })
+    }
+    
+    
+    func getCoords(streetName:String, completionHandler:(@escaping (CLLocationCoordinate2D, NSError?) -> Void)) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(streetName) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    completionHandler(location.coordinate, nil)
+                    return
+                }
+            } else {
+                completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+                return
+            }
+        }
     }
     
 }
@@ -165,4 +195,15 @@ class memory:ObservableObject {
             realImages.append(imageSix)
         }
     }
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+struct Mark : Identifiable {
+    let id = UUID()
+    var mem : memory
+    let coord:CLLocationCoordinate2D
 }

@@ -29,8 +29,16 @@ struct MapView: View {
     /*, annotationItems: locationManager.allMapPins){ MapPin(coordinate: $0.coordinate)}*/
     
     var body: some View {
-        VStack{
-            Map(coordinateRegion: $region, interactionModes:.all, showsUserLocation: true, userTrackingMode: $track)
+        NavigationView{
+            VStack{
+                Map(coordinateRegion: $region, interactionModes:.all, showsUserLocation: true, userTrackingMode: $track, annotationItems: locationManager.annotations) { place in
+                    MapAnnotation(coordinate: place.coord, anchorPoint: CGPoint(x: 0.5, y: 0.7)){
+                        NavigationLink(destination:MemoryView(mem:place.mem)){
+                            Image(systemName: "pin.fill").foregroundColor(.red)
+                        }
+                    }
+                }
+            }
         }
     }
 }
