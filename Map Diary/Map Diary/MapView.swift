@@ -32,10 +32,10 @@ struct MapView: View {
         NavigationView{
             VStack{
                 Map(coordinateRegion: $region, interactionModes:.all, showsUserLocation: true, userTrackingMode: $track, annotationItems: locationManager.annotations) { place in
-                    MapAnnotation(coordinate: place.coord, anchorPoint: CGPoint(x: 0.5, y: 0.7)){
+                    MapAnnotation(coordinate: place.coord, anchorPoint: CGPoint(x: 0.5, y: 0.7)){ //0.5 0.7
                         NavigationLink(destination:MemoryView(mem:place.mem)){
-                            Image(systemName: "pin.fill").foregroundColor(.red)
-                        }
+                            Image(systemName: "figure.wave").resizable().frame(width: 15,height: 25).foregroundColor(.purple)
+                        }//pin.fill
                     }
                 }
             }
