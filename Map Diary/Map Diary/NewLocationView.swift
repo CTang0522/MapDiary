@@ -10,6 +10,8 @@ import SwiftUI
 struct NewLocationView: View {
     
     @EnvironmentObject var locationManager : LocationManager
+    @Environment(\.dismiss) private var dismiss
+    
     @State var show = false
     @State var location:String = ""
     @State var notes:String = ""
@@ -186,7 +188,7 @@ struct NewLocationView: View {
                 
                 Button{
                     locationManager.newMemory(location:location, imageOne:imageOneSelected, imageTwo:imageTwoSelected, imageThree:imageThreeSelected, imageFour:imageFourSelected, imageFive:imageFiveSelected, imageSix:imageSixSelected, notes:notes)
-                    
+                    dismiss()
                 } label: {
                     Text("Enter Location")
                 }.foregroundColor(.purple)
